@@ -1,11 +1,12 @@
 /* ---------- Color palette ---------- */
 :root {
-  --brown-dark: #7C4D3D;
-  --brown-soft: #C0855D;
-  --cream: #F5EFE8;      /* warmer background */
-  --terracotta: #D2694C;
-  --card-bg: #FAF6F2;    /* soft paper for cards */
+  --brown-dark: #3B2318;   /* deeper ink-brown for text & titles */
+  --brown-soft: #9C6B4F;   /* warm leather-brown */
+  --cream: #F1EBE0;        /* aged paper background */
+  --terracotta: #B25C4E;   /* muted terracotta accent */
+  --card-bg: #F7EFE4;      /* journal-page cards */
 }
+
 
 /* smooth scroll to sections */
 html {
@@ -16,13 +17,27 @@ html {
 * {
   box-sizing: border-box;
 }
+h1, h2, h3, .logo-text {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  letter-spacing: 0.03em;
+}
+p {
+  line-height: 1.7;
+}
 
 body {
   margin: 0;
-  font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Lora', system-ui, -apple-system, BlinkMacSystemFont, serif;
   background-color: var(--cream);
-  color: #3b2318;
+  color: var(--brown-dark);
+
+  /* very subtle “paper” texture using gradients */
+  background-image:
+    radial-gradient(circle at top left, rgba(0, 0, 0, 0.06), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.04), transparent 60%);
+  background-attachment: fixed;
 }
+
 
 /* Container helper (we'll reuse) */
 .page-width {
@@ -42,10 +57,9 @@ body {
 }
 
 .logo-text {
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  text-transform: none;
+  letter-spacing: 0.08em;
   color: var(--brown-dark);
 }
 
@@ -134,49 +148,49 @@ body {
   padding: 1.5rem;
 }
 
-/* Rounded "card" like June layout */
+/* Journal-style hero card */
 .hero-card {
-  position: relative;
   width: 100%;
-  max-width: 480px;
-  border-radius: 30px;
-  overflow: hidden;
-  padding: 3.5rem 2.2rem;
-  color: #ffffff;
-
-  background: linear-gradient(
-    135deg,
-    var(--brown-soft),
-    var(--terracotta)
-  );
-
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  max-width: 900px;
+  border-radius: 28px;
+  padding: 2.2rem 2.4rem;
+  background-color: var(--card-bg);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(59, 35, 24, 0.05);
+  position: relative;
 }
 
+/* little “age” edge effect */
 .hero-card::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.18);
+  inset: 0.9rem -0.4rem auto auto;
+  border-radius: 20px;
+  border: 1px solid rgba(59, 35, 24, 0.18);
+  pointer-events: none;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 1;
+/* layout inside card: text + art */
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: stretch;
 }
 
-.hero h1 {
-  font-size: 1.9rem;
-  line-height: 1.2;
-  margin: 0 0 1rem;
+.hero-text h1 {
+  font-size: 2.1rem;
+  line-height: 1.1;
+  margin: 0 0 0.9rem;
 }
 
-.hero p {
+.hero-text p {
   margin: 0 0 1.8rem;
   font-size: 0.98rem;
 }
 
-/* Button */
+/* Button keeps same class but fits new vibe */
 .hero-button {
   display: inline-block;
   padding: 0.75rem 1.6rem;
@@ -184,17 +198,63 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  background-color: var(--cream);
-  color: var(--brown-dark);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background-color: var(--brown-soft);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
   transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
 }
 
 .hero-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
-  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
+  background-color: var(--terracotta);
 }
+
+/* Art panel – placeholder “painting” */
+.hero-art {
+  border-radius: 22px;
+  background-color: #E1D2C2;
+  box-shadow: inset 0 0 0 1px rgba(59, 35, 24, 0.1);
+  position: relative;
+  overflow: hidden;
+
+  /* fallback texture/gradient if no image yet */
+  background-image:
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.7), transparent 55%),
+    linear-gradient(135deg, #C88C73, #7E4E53);
+  background-size: cover;
+  background-position: center;
+}
+
+/* If/when you add a real image, you’ll change this url() */
+.hero-art.has-image {
+  background-image: url('images/hero-illustration.jpg');
+}
+
+/* small screens – stack text & art */
+@media (max-width: 720px) {
+  .hero {
+    min-height: auto;
+    padding-top: 1rem;
+  }
+
+  .hero-card {
+    padding: 1.8rem 1.4rem 2rem;
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.4rem;
+  }
+
+  .hero-art {
+    min-height: 200px;
+  }
+}
+
+
+
 
 /* ---------- Sections base ---------- */
 main section {
