@@ -29,22 +29,25 @@ p {
   color: rgba(46, 28, 18, 0.9);
 }
 
-body {
+
+ body {
   margin: 0;
   font-family: 'Lora', system-ui, -apple-system, BlinkMacSystemFont, serif;
   color: var(--brown-dark);
   line-height: 1.7;
 
-  /* Paper texture background */
-  background-color: #d4c9b4; /* fallback tone */
-  background-image:
-    url("soft-paper-texture.png"),
-    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.05), transparent 60%);
-  background-repeat: repeat;
-  background-size: 600px auto;  /* change to 400 or 800 to taste */
+  /* Cozy dark-academia parchment gradient */
+  background: radial-gradient(circle at 50% 20%, #e1d5c2 0%, #d0c1a7 40%, #b49b80 100%);
   background-attachment: fixed;
 }
-
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  z-index: 0;
+}
 
 
 /* Container helper (we'll reuse) */
@@ -150,22 +153,21 @@ body {
 
 /* ---------- Hero section ---------- */
 .hero {
-  min-height: 80vh;  /* more breathing room */
-  align-items: flex-start;
-  padding-top: 8vh;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
 }
 
-/* Journal-style hero card */
 .hero-card {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 100px;
-  border-radius: 28px;
-  padding: 2.2rem 2.4rem;
+  max-width: 1000px;
   background-color: var(--card-bg);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06);
-  position: relative;
+  padding: 2.5rem 2rem;
+  border-radius: 26px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
+
 
 /* little “age” edge effect */
 .hero-card::before {
@@ -225,18 +227,11 @@ body {
   position: relative;
   overflow: hidden;
 
-  /* fallback texture/gradient if no image yet */
-  background-image:
-    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.7), transparent 55%),
-    linear-gradient(135deg, #C88C73, #7E4E53);
+  background-image: url("hero-placeholder.jpg");
   background-size: cover;
   background-position: center;
 }
 
-/* If/when you add a real image, you’ll change this url() */
-.hero-art.has-image {
-  background-image: url("hero-placeholder.jpg");
-}
 
 /* small screens – stack text & art */
 @media (max-width: 720px) {
@@ -698,14 +693,7 @@ a:not(.hero-button):not(.story-button):not(.story-link):hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(40, 28, 18, 0.45); /* semi-transparent dark veil */
-  pointer-events: none;
-  z-index: 0;
-}
+
 
 /* ---------- Footer ---------- */
 .site-footer {
