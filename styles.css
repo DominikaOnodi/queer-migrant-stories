@@ -75,11 +75,11 @@ p {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -20px;
-  height: 40px;
+  bottom: -10px;
+  height: 20px;
   background: radial-gradient(
     circle at 50% 0,
-    rgba(255, 244, 228, 0.25),
+    rgba(63, 39, 2, 0.236),
     transparent 70%
   );
   pointer-events: none;
@@ -100,7 +100,7 @@ p {
 /* light ink for logo & nav in the dark bar */
 .header-shell .logo-text,
 .header-shell .site-nav a {
-  color: #f7efe2;
+  color: #2f1e02;
 }
 
 /* tweak hover underline to be softer on dark */
