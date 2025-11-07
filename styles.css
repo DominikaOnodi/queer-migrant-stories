@@ -323,7 +323,7 @@ main section {
 }
 /* bring stories section closer to hero */
 .stories-section {
-  padding-top: 0.25rem;   /* was 3rem via main section rule */
+  padding-top: 0.5rem;   /* was 3rem via main section rule */
 }
 
 
