@@ -48,6 +48,14 @@ p {
   margin: 0 auto;
   padding: 0 1.5rem;
 }
+/* clean sans font just for navigation & buttons */
+.site-nav a,
+.menu-button,
+.hero-button,
+.story-button {
+  font-family: 'Nunito Sans', sans-serif;
+  letter-spacing: 0.04em;
+}
 
 /* ---------- Header ---------- */
 /* ---------- Header shell bar ---------- */
@@ -71,7 +79,7 @@ p {
   height: 40px;
   background: radial-gradient(
     circle at 50% 0,
-    rgba(255, 244, 228, 0.35),
+    rgba(255, 244, 228, 0.25),
     transparent 70%
   );
   pointer-events: none;
@@ -312,7 +320,7 @@ main section {
 }
 /* bring stories section closer to hero */
 .stories-section {
-  padding-top: 1.5rem;   /* was 3rem via main section rule */
+  padding-top: 1rem;   /* was 3rem via main section rule */
 }
 
 
