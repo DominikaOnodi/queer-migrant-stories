@@ -50,14 +50,37 @@ p {
 }
 
 /* ---------- Header ---------- */
+/* ---------- Header shell bar ---------- */
+.header-shell {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(25, 16, 11, 0.96);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid rgba(255, 244, 225, 0.12);
+}
+
+/* keep inner header centered and spaced as before */
 .site-header {
-  max-width: 960px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 1.2rem 1.5rem;
+  padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+/* light ink for logo & nav in the dark bar */
+.header-shell .logo-text,
+.header-shell .site-nav a {
+  color: #f7efe2;
+}
+
+/* tweak hover underline to be softer on dark */
+.header-shell .site-nav a::after {
+  background-color: #f7efe2;
+}
+
 
 .logo-text {
   font-size: 1.2rem;
