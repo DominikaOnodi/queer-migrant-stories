@@ -1,0 +1,510 @@
+/* ---------- Color palette ---------- */
+:root {
+  --brown-dark: #7C4D3D;
+  --brown-soft: #C0855D;
+  --cream: #F5EFE8;      /* warmer background */
+  --terracotta: #D2694C;
+  --card-bg: #FAF6F2;    /* soft paper for cards */
+}
+
+/* smooth scroll to sections */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- Global styles ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--cream);
+  color: #3b2318;
+}
+
+/* Container helper (we'll reuse) */
+.page-width {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-text {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--brown-dark);
+}
+
+/* navigation links */
+.site-nav {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--brown-dark);
+  position: relative;
+}
+
+/* tiny underline on hover */
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 0;
+  height: 2px;
+  background-color: var(--terracotta);
+  transition: width 0.18s ease;
+}
+
+.site-nav a:hover::after {
+  width: 100%;
+}
+
+.menu-button {
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--brown-dark);
+  display: none; /* we'll enable this later for mobile */
+}
+/* ---------- Responsive navigation (mobile) ---------- */
+@media (max-width: 720px) {
+  .site-header {
+    align-items: center;
+  }
+
+  /* Show the button on small screens */
+  .menu-button {
+    display: block;
+  }
+
+  /* Nav becomes a little dropdown panel */
+  .site-nav {
+    position: absolute;
+    top: 60px;
+    right: 1.5rem;
+    background-color: var(--card-bg);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    padding: 0.6rem 0.9rem;
+    display: none; /* hidden by default */
+    flex-direction: column;
+    gap: 0.4rem;
+    z-index: 20;
+  }
+
+  .site-nav a {
+    font-size: 0.85rem;
+  }
+
+  /* When JS adds .nav-open, we show it */
+  .site-nav.nav-open {
+    display: flex;
+  }
+}
+
+/* ---------- Hero section ---------- */
+.hero {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+/* Rounded "card" like June layout */
+.hero-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 3.5rem 2.2rem;
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    var(--brown-soft),
+    var(--terracotta)
+  );
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+.hero p {
+  margin: 0 0 1.8rem;
+  font-size: 0.98rem;
+}
+
+/* Button */
+.hero-button {
+  display: inline-block;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background-color: var(--cream);
+  color: var(--brown-dark);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+  background-color: #ffffff;
+}
+
+/* ---------- Sections base ---------- */
+main section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--brown-dark);
+}
+
+.section-intro {
+  max-width: 640px;
+  margin-bottom: 1.8rem;
+  font-size: 0.98rem;
+}
+
+/* ---------- Stories grid ---------- */
+.stories-section {
+  padding-bottom: 3rem;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+/* On bigger screens, show cards in two columns */
+@media (min-width: 720px) {
+  .stories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Story card styling */
+.story-card {
+  background-color: var(--card-bg);
+  border-radius: 18px;
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(124, 77, 61, 0.08);
+}
+
+.story-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  color: var(--brown-dark);
+}
+
+.story-meta {
+  margin: 0 0 0.9rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(60, 40, 30, 0.75);
+}
+
+.story-excerpt {
+  margin: 0 0 1.1rem;
+  font-size: 0.95rem;
+}
+
+/* Button used as <a> or <button> */
+.story-button {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--terracotta);
+  color: #fff;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background-color 0.08s ease;
+  text-decoration: none;
+}
+
+.story-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+  background-color: #c5543b;
+}
+
+/* ---------- Submit + About ---------- */
+.submit-section .section-note {
+  max-width: 640px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.about-section p {
+  max-width: 640px;
+  font-size: 0.98rem;
+}
+/* ---------- Submit form styling ---------- */
+.story-form {
+  max-width: 720px;
+  padding: 1.5rem 1.5rem 2rem;
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(124, 77, 61, 0.12);
+}
+
+.form-row {
+  margin-bottom: 1.2rem;
+}
+
+.form-row.two-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .form-row.two-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.story-form label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--brown-dark);
+}
+
+.story-form input,
+.story-form textarea,
+.story-form select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid rgba(124, 77, 61, 0.25);
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: #FBF8F4;
+}
+
+.story-form textarea {
+  resize: vertical;
+}
+
+.story-form input::placeholder,
+.story-form textarea::placeholder {
+  color: rgba(60, 40, 30, 0.55);
+}
+/* ---------- Responsive navigation (mobile) ---------- */
+@media (max-width: 720px) {
+  .site-header {
+    align-items: center;
+  }
+
+  /* Show the button on small screens */
+  .menu-button {
+    display: block;
+  }
+
+  /* Nav becomes dropdown panel */
+  .site-nav {
+    position: absolute;
+    top: 60px;
+    right: 1.5rem;
+    background-color: var(--card-bg);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    padding: 0.6rem 0.9rem;
+    display: none; /* hidden by default */
+    flex-direction: column;
+    gap: 0.4rem;
+    z-index: 20;
+  }
+
+  .site-nav a {
+    font-size: 0.85rem;
+  }
+
+  /* When our JS adds this class, the nav shows */
+  .site-nav.nav-open {
+    display: flex;
+  }
+}
+
+/* focus state */
+.story-form input:focus,
+.story-form textarea:focus,
+.story-form select:focus {
+  outline: 2px solid rgba(210, 105, 76, 0.4);
+  outline-offset: 1px;
+  border-color: var(--terracotta);
+  background-color: #FFFDFC;
+}
+
+/* field label for groups */
+.field-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+  color: var(--brown-dark);
+}
+
+/* checkboxes & radios inline */
+.choice-row,
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+}
+
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+
+.choice input {
+  width: auto;
+}
+
+/* small note text */
+.small-note {
+  font-size: 0.8rem;
+  margin: 0.4rem 0 0;
+  color: rgba(60, 40, 30, 0.8);
+}
+
+/* align submit button to right on bigger screens */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ---------- Story page (full story view) ---------- */
+.story-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.story-full {
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem 2rem 1.5rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(124, 77, 61, 0.1);
+}
+
+.story-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: rgba(60, 40, 30, 0.7);
+  margin: 0 0 0.5rem;
+}
+
+.story-full h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+  color: var(--brown-dark);
+}
+
+.story-full .story-meta {
+  margin-bottom: 1rem;
+}
+
+.story-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.4rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background-color: var(--terracotta);
+  color: #fff;
+}
+
+.story-body p {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--brown-dark);
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  max-width: 960px;
+  margin: 3rem auto 0;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  color: rgba(60, 40, 30, 0.7);
+}

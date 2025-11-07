@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Queer Immigrant Stories Archive</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Cozy font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+  <footer class="site-footer">
+    <p>Queer Immigrant Stories Archive · 🧡</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
+<body id="top">
+  <!-- Header / navigation -->
+ <<header class="site-header">
+  <div class="logo-text">Queer Immigrant Stories</div>
+
+  <nav id="siteNav" class="site-nav">
+    <a href="#top">Home</a>
+    <a href="#stories">Stories</a>
+    <a href="#submit">Submit</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <button id="menuButton" class="menu-button" aria-label="Toggle navigation">
+    ☰
+  </button>
+</header>
+
+
+
+   
+
+  <main>
+    <!-- Hero section -->
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-content">
+          <h1>Queer Immigrant Stories Archive</h1>
+          <p>
+            A digital home for stories of migration, identity, joy,
+            struggle, and everything in between.
+            
+          </p>
+          <a href="#stories" class="hero-button">Enter the archive</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stories section -->
+    <section id="stories" class="stories-section">
+      <h2>Stories from the archive</h2>
+      <p class="section-intro">
+        These are glimpses into many lives and journeys. In the future, each
+        story can have its own page. For now, these are example cards so we
+        can shape the feeling of the archive.
+      </p>
+
+      <div class="stories-grid">
+        <article class="story-card">
+  <h3>Finding Home in a New Language</h3>
+  <p class="story-meta">
+    Sara · she/they · from Poland · living in London
+  </p>
+  <p class="story-excerpt">
+    “The first time someone mispronounced my name…”
+  </p>
+  <a href="story-finding-home.html" class="story-button">Read story</a>
+</article>
+
+
+        <article class="story-card">
+          <h3>Border Crossings, Chosen Family</h3>
+          <p class="story-meta">
+            Nico · they/them · from Poland · living in Liverpool
+          </p>
+          <p class="story-excerpt">
+            “My chosen family helped me stitch those pieces back
+            together.”
+          </p>
+          <button class="story-button">Read story</button>
+        </article>
+
+        <article class="story-card">
+          <h3>My journey</h3>
+          <p class="story-meta">
+            Minh · he/him · from Vietnam · living in Prague
+          </p>
+          <p class="story-excerpt">
+            “My story is blablabla”
+          </p>
+          <button class="story-button">Read story</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Submit section -->
+  <section id="submit" class="submit-section">
+  <h2>Share your story</h2>
+  <p class="section-intro">
+    This is first version of the form. You can share as much or as
+    little as you like. Required fields are marked with *.
+  </p>
+
+  <form class="story-form" 
+      action="https://formsubmit.co/domca.onodi@seznam.cz" 
+      method="POST"
+      <input type="hidden" name="_subject" value="New Queer Story Submission">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://yourwebsiteurl.com/thank-you.html">
+>
+
+    <!-- Identity & context -->
+    <div class="form-row">
+      <label>
+        Preferred name
+        <input type="text" name="name" placeholder="Leave blank if you prefer to stay anonymous">
+      </label>
+    </div>
+
+    <div class="form-row two-columns">
+      <label>
+        Pronouns
+        <input type="text" name="pronouns" placeholder="she/they, he/him, they/them...">
+      </label>
+
+      <label>
+        Email (optional)
+        <input type="email" name="email" placeholder="Only if you'd like us to contact you">
+      </label>
+    </div>
+
+    <div class="form-row two-columns">
+      <label>
+        From*
+        <input type="text" name="from" required placeholder="Country / region you are from">
+      </label>
+
+      <label>
+        Currently living in*
+        <input type="text" name="living" required placeholder="Country / city where you live now">
+      </label>
+    </div>
+
+    <!-- How story appears -->
+    <div class="form-row">
+      <p class="field-label">How would you like your story to appear?*</p>
+      <div class="choice-row">
+        <label class="choice">
+          <input type="radio" name="visibility" value="name" required>
+          With my first name
+        </label>
+        <label class="choice">
+          <input type="radio" name="visibility" value="pseudonym">
+          With a pseudonym
+        </label>
+        <label class="choice">
+          <input type="radio" name="visibility" value="anonymous">
+          Anonymous
+        </label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label>
+        If using a pseudonym, what name would you like to use?
+        <input type="text" name="pseudonym" placeholder="Optional">
+      </label>
+    </div>
+
+    <!-- Story content -->
+    <div class="form-row">
+      <label>
+        Story title (optional)
+        <input type="text" name="title" placeholder="Give your story a title, if you want">
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label>
+        Your story*
+        <textarea name="story" rows="8" required
+          placeholder="You can write about migration, family, love, work, joy, grief, daily life – anything that feels important to you."></textarea>
+      </label>
+    </div>
+
+    <!-- Tags -->
+    <div class="form-row">
+      <p class="field-label">What themes fit your story? (optional)</p>
+      <div class="checkbox-group">
+        <label class="choice">
+          <input type="checkbox" name="tags" value="migration"> Migration
+        </label>
+        <label class="choice">
+          <input type="checkbox" name="tags" value="family"> Family
+        </label>
+        <label class="choice">
+          <input type="checkbox" name="tags" value="love"> Love & relationships
+        </label>
+        <label class="choice">
+          <input type="checkbox" name="tags" value="joy"> Joy & celebration
+        </label>
+        <label class="choice">
+          <input type="checkbox" name="tags" value="work"> Work & study
+        </label>
+        <label class="choice">
+          <input type="checkbox" name="tags" value="mental-health"> Mental health
+        </label>
+        <label class="choice">
+          <input type="checkbox" name="tags" value="other"> Other
+        </label>
+      </div>
+    </div>
+
+    <!-- Consent -->
+    <div class="form-row">
+      <label class="choice">
+        <input type="checkbox" name="consent" required>
+        I understand that my story may be included in this archive and shown on the website.
+      </label>
+      <p class="small-note">
+        You can contact the project later if you’d like your story edited or removed.
+      </p>
+    </div>
+
+    <!-- Submit button -->
+    <div class="form-row form-actions">
+      <button type="submit" class="story-button">
+        Send my story
+      </button>
+    </div>
+  </form>
+</section>
+
+
+    <!-- About section -->
+    <section id="about" class="about-section">
+      <h2>About the archive</h2>
+      <p>
+        This archive is a community project honouring queer immigrants and
+        their stories.
+      </p>
+      <p>
+        The project is created with care. It will grow
+        over time, shaped by the people who choose to share a piece of their
+        journey here.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Queer Immigrant Stories Archive · 🧡</p>
+  </footer>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuButton = document.getElementById('menuButton');
+    const siteNav = document.getElementById('siteNav');
+
+    if (!menuButton || !siteNav) {
+      console.warn('Menu button or nav not found');
+      return;
+    }
+
+    menuButton.addEventListener('click', function () {
+      siteNav.classList.toggle('nav-open');
+    });
+  });
+ </script> 
+</body>
+</html>
+
