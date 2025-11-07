@@ -1,10 +1,10 @@
 /* ---------- Color palette ---------- */
 :root {
-  --brown-dark: #3B2318;   /* deeper ink-brown for text & titles */
-  --brown-soft: #9C6B4F;   /* warm leather-brown */
-  --cream: #F1EBE0;        /* aged paper background */
-  --terracotta: #B25C4E;   /* muted terracotta accent */
-  --card-bg: #F7EFE4;      /* journal-page cards */
+  --brown-dark: #3B2318;     /* rich ink brown */
+  --brown-soft: #8B5E4F;     /* slightly darker leather brown */
+  --cream: #E9E2D8;          /* warmer, less bright paper tone */
+  --terracotta: #A75044;     /* muted terracotta accent */
+  --card-bg: #F2E9DE;        /* faint vintage paper for cards */
 }
 
 
@@ -102,6 +102,16 @@ body {
   cursor: pointer;
   color: var(--brown-dark);
   display: none; /* we'll enable this later for mobile */
+}
+body {
+  /* existing styles… */
+  background-color: var(--cream);
+  /* add this texture effect: */
+  background-image:
+    radial-gradient(circle at top left, rgba(0,0,0,0.02), transparent 60%),
+    url('images/soft-paper-texture.png');  /* optional if you find a free texture */
+  background-size: cover;
+  background-attachment: fixed;
 }
 /* ---------- Responsive navigation (mobile) ---------- */
 @media (max-width: 720px) {
