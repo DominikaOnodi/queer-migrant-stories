@@ -257,6 +257,16 @@ body body {
     min-height: 200px;
   }
 }
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  40% { opacity: 0.97; }
+  50% { opacity: 0.9; }
+  60% { opacity: 0.95; }
+}
+
+.hero-card {
+  animation: flicker 4s infinite ease-in-out;
+}
 
 
 
@@ -665,6 +675,28 @@ h2 {
 .back-link:hover {
   text-decoration: underline;
 }
+/* ---------- Button & link animations ---------- */
+a,
+button {
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Soft lift effect */
+a:hover,
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Faint underline slide for normal text links */
+a:not(.hero-button):not(.story-button):not(.story-link):hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -673,4 +705,21 @@ h2 {
   padding: 1.5rem;
   font-size: 0.85rem;
   color: rgba(60, 40, 30, 0.7);
+}
+/* ---------- Page border / texture ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  border: 30px solid rgba(43, 28, 18, 0.15); /* subtle vignette edge */
+  box-shadow:
+    inset 0 0 60px rgba(0, 0, 0, 0.25),
+    inset 0 0 10px rgba(0, 0, 0, 0.15);
+  background-image:
+    url("images/soft-paper-texture.png"),
+    radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.03), transparent 70%);
+  background-size: cover;
+  mix-blend-mode: multiply;
+  z-index: 5;
 }
