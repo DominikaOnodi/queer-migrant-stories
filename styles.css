@@ -724,6 +724,24 @@ h2 {
 .back-link:hover {
   text-decoration: underline;
 }
+/* ---------- Story audio block ---------- */
+.story-audio {
+  margin-top: 1.8rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.story-audio audio {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.story-audio .small-note {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(46, 28, 18, 0.75);
+}
+
 /* ---------- Button & link animations ---------- */
 a,
 button {
