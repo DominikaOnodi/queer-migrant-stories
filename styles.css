@@ -160,6 +160,7 @@ p {
 /* ---------- Responsive navigation (mobile) ---------- */
 @media (max-width: 720px) {
   .site-header {
+    max-width: 1100px
     align-items: center;
   }
 
@@ -206,11 +207,13 @@ p {
 
 
 .hero-card {
-  max-width: 1600px;
+  width: 100%;          /* take all space available */
+  max-width: 1100px;    /* a bit wider than the header */
   background-color: var(--card-bg);
   padding: 2.8rem 2.4rem;
   border-radius: 26px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;       /* center it */
 }
 
 
@@ -300,14 +303,14 @@ p {
 }
 @keyframes flicker {
   0%, 100% { opacity: 1; }
-  40% { opacity: 0.97; }
-  50% { opacity: 0.9; }
-  60% { opacity: 0.95; }
+  35% { opacity: 0.96; }
+  45% { opacity: 0.88; }
+  55% { opacity: 0.94; }
+}
+.hero-card {
+  animation: flicker 3s infinite ease-in-out;
 }
 
-.hero-card {
-  animation: flicker 4s infinite ease-in-out;
-}
 
 
 
@@ -320,7 +323,7 @@ main section {
 }
 /* bring stories section closer to hero */
 .stories-section {
-  padding-top: 0.5rem;   /* was 3rem via main section rule */
+  padding-top: 0.25rem;   /* was 3rem via main section rule */
 }
 
 
