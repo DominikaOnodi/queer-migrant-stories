@@ -15,18 +15,23 @@
 </head>
 <body>
   <!-- Reuse the same header so it feels like one website -->
-  <header class="site-header">
-    <div class="logo-text">Queer Immigrant Stories</div>
+  <header class="header-shell">
+  <div class="site-header">
+    <div class="logo-text">Queer Migrant Stories</div>
 
-    <nav class="site-nav">
-      <a href="index.html#top">Home</a>
-      <a href="index.html#stories">Stories</a>
-      <a href="index.html#submit">Submit</a>
-      <a href="index.html#about">About</a>
+    <nav id="siteNav" class="site-nav">
+      <a href="#top">Home</a>
+      <a href="#stories">Stories</a>
+      <a href="#submit">Submit</a>
+      <a href="#about">About</a>
     </nav>
 
-    <button class="menu-button" aria-label="Open menu">☰</button>
-  </header>
+    <button id="menuButton" class="menu-button" aria-label="Toggle navigation">
+      ☰
+    </button>
+  </div>
+</header>
+
 
   <main class="story-page">
     <article class="story-full">
