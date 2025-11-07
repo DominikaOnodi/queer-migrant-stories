@@ -206,7 +206,7 @@ p {
 
 
 .hero-card {
-  max-width: 1000px;
+  max-width: 1600px;
   background-color: var(--card-bg);
   padding: 2.8rem 2.4rem;
   border-radius: 26px;
@@ -320,7 +320,7 @@ main section {
 }
 /* bring stories section closer to hero */
 .stories-section {
-  padding-top: 1rem;   /* was 3rem via main section rule */
+  padding-top: 0.5rem;   /* was 3rem via main section rule */
 }
 
 
