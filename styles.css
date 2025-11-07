@@ -311,6 +311,20 @@ p {
   animation: flicker 3s infinite ease-in-out;
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 30px;
+  background: radial-gradient(
+    circle at 50% 0,
+    rgba(0, 0, 0, 0.15),
+    transparent 80%
+  );
+  pointer-events: none;
+}
 
 
 
@@ -740,6 +754,15 @@ h2 {
   margin-top: 0.5rem;
   font-size: 0.8rem;
   color: rgba(46, 28, 18, 0.75);
+}
+/* pull Stories closer to hero */
+.hero {
+  margin-bottom: 1rem; /* tighten space below hero */
+}
+
+.stories-section {
+  padding-top: 0;      /* remove section padding */
+  margin-top: 0;       /* make sure no top margin remains */
 }
 
 /* ---------- Button & link animations ---------- */
