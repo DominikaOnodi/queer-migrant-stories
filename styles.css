@@ -29,20 +29,22 @@ p {
   color: rgba(46, 28, 18, 0.9);
 }
 
-body body {
+body {
   margin: 0;
   font-family: 'Lora', system-ui, -apple-system, BlinkMacSystemFont, serif;
-  background-color: var(--cream);
   color: var(--brown-dark);
   line-height: 1.7;
 
-  /* Aged paper & candlelight vignette */
+  /* Paper texture background */
+  background-color: #d4c9b4; /* fallback tone */
   background-image:
-    radial-gradient(circle at 20% 15%, rgba(255,255,255,0.05), transparent 60%),
-    radial-gradient(circle at 80% 85%, rgba(0,0,0,0.08), transparent 70%),
-    linear-gradient(180deg, rgba(0,0,0,0.05) 0%, transparent 60%, rgba(0,0,0,0.08) 100%);
+    url("soft-paper-texture.png"),
+    radial-gradient(circle at 50% 50%, rgba(0,0,0,0.05), transparent 60%);
+  background-repeat: repeat;
+  background-size: 600px auto;  /* change to 400 or 800 to taste */
   background-attachment: fixed;
 }
+
 
 
 /* Container helper (we'll reuse) */
@@ -705,21 +707,4 @@ a:not(.hero-button):not(.story-button):not(.story-link):hover {
   padding: 1.5rem;
   font-size: 0.85rem;
   color: rgba(60, 40, 30, 0.7);
-}
-/* ---------- Page border / texture ---------- */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  border: 30px solid rgba(43, 28, 18, 0.15); /* subtle vignette edge */
-  box-shadow:
-    inset 0 0 60px rgba(0, 0, 0, 0.25),
-    inset 0 0 10px rgba(0, 0, 0, 0.15);
-  background-image:
-    url("images/soft-paper-texture.png"),
-    radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.03), transparent 70%);
-  background-size: cover;
-  mix-blend-mode: multiply;
-  z-index: 5;
 }
